@@ -1,0 +1,32 @@
+version: 2
+
+models:
+  - name: prepared_chess_knowledge
+    columns:
+      - name: knowledge_id
+        data_type: text
+        constraints:
+          - type: primary_key
+        tests:
+          - unique
+          - not_null
+      - name: fen
+        data_type: varchar
+      - name: fen_normalized
+        data_type: text
+      - name: fen_positional
+        data_type: text
+      - name: content
+        data_type: varchar
+      - name: context_type
+        data_type: text
+      - name: cognitive_stage
+        data_type: text
+        tests:
+          - not_null
+      - name: source_metadata
+        data_type: json
+      - name: quality_score
+        data_type: numeric
+      - name: created_at
+        data_type: timestamp with time zone

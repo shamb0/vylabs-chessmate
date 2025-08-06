@@ -1,0 +1,23 @@
+# The Google ADK library must be installed from its source repository.
+# See the Google ADK documentation for instructions.
+redis[hiredis]
+structlog
+litellm
+pydantic-settings
+
+# Dependencies for RAG implementation (v2.0 - Production Grade)
+sqlalchemy[asyncio]
+asyncpg
+pgvector
+alembic
+sqlalchemy-json
+psycopg2-binary
+sentence-transformers
+dbt-postgres
+python-chess
+tqdm
+dlt
+tenacity
+pgai[sqlalchemy,vectorizer-worker]
+stockfish
+toolbox-core

@@ -1,0 +1,25 @@
+version: 2
+
+models:
+  - name: stg_pgn_moves
+    columns:
+      - name: game_id
+        data_type: varchar
+      - name: move_san
+        data_type: varchar
+      - name: fen_after_move
+        data_type: varchar
+      - name: comment
+        data_type: varchar
+      - name: cognitive_stage
+        data_type: varchar
+      - name: coaching_style_id
+        data_type: bigint
+      - name: cultural_context_id
+        data_type: bigint
+      - name: language
+        data_type: varchar
+      - name: _dlt_load_id
+        data_type: varchar
+      - name: _dlt_id
+        data_type: varchar

@@ -1,0 +1,13 @@
+chessmate_dbt:
+  target: dev
+  outputs:
+    dev:
+      type: postgres
+      host: postgres-db
+      port: 5432
+      user: postgresml
+      password: chessmate_password
+      dbname: postgresml
+      schema: public
+      threads: 1
+      sslmode: require

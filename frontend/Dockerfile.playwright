@@ -1,0 +1,24 @@
+# Use the official Playwright image as the base. It includes browsers and dependencies.
+FROM mcr.microsoft.com/playwright:v1.54.1-jammy
+
+# Set the working directory.
+WORKDIR /usr/src/app
+
+# Install bun globally, jq for JSON manipulation, and xvfb for headed tests.
+RUN apt-get update && apt-get install -y jq xvfb
+
+# Copy all package manifests.
+COPY package.json package-lock.json* package.playwright.json ./
+
+# Use jq to merge dependencies from package.playwright.json into package.json.
+# This creates a single, unified package.json for a robust installation.
+RUN jq -s '.[0] * { dependencies: (.[0].dependencies + .[1].dependencies), devDependencies: (.[0].devDependencies + .[1].devDependencies) }' package.json package.playwright.json > package.json.tmp && mv package.json.tmp package.json
+
+# Run a single, unified install based on the merged package.json.
+RUN npm install
+
+# Copy the entire application source code and scripts.
+COPY . .
+
+# Ensure the test runner script is executable.
+RUN chmod +x /usr/src/app/scripts/run-e2e-tests.sh

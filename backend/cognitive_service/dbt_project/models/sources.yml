@@ -1,0 +1,8 @@
+version: 2
+
+sources:
+  - name: staged_pgn_data_source
+    schema: staged_pgn_data
+    tables:
+      - name: games_resource
+        description: "Raw PGN move data with comments, loaded by dlt from PGN files."

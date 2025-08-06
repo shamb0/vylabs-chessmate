@@ -1,0 +1,36 @@
+sources:
+  postgres-db:
+    kind: postgres
+    host: ${POSTGRES_HOST}
+    port: ${POSTGRES_PORT}
+    database: ${POSTGRES_DB}
+    user: ${POSTGRES_USER}
+    password: ${POSTGRES_PASSWORD}
+
+tools:
+  search_chess_knowledge:
+    kind: postgres-sql
+    source: postgres-db
+    description: "Performs a semantic search on the chess knowledge base, filtered by cognitive stage."
+    parameters:
+      - name: query_terms
+        type: string
+        description: "The natural language query to search for."
+      - name: cognitive_stages
+        type: string
+        description: "A comma-separated list of cognitive stages to filter by (e.g., 'novice,developing')."
+    statement: |
+      SELECT
+        k.fen,
+        k.content,
+        e.chunk,
+        (e.embedding <=> ai.ollama_embed('nomic-embed-text', $1, host=>'http://ollama:11434')) as distance
+      FROM prepared_chess_knowledge_embeddings_store e
+      JOIN prepared_chess_knowledge k ON e.knowledge_id = k.knowledge_id
+      WHERE k.cognitive_stage = ANY(string_to_array($2, ','))
+      ORDER BY distance ASC
+      LIMIT 5;
+
+toolsets:
+  rag_toolset:
+    - search_chess_knowledge

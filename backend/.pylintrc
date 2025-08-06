@@ -1,0 +1,1944 @@
+[main]
+# A list of regular expressions of errors to ignore.
+# The errors are ignored in addition to the ones specified in the parent
+# configuration file.
+#
+# This is a comma-separated list of strings.
+# ignore=
+
+# A list of regular expressions of errors to ignore, even if they are enabled
+# by default.
+#
+# This is a comma-separated list of strings.
+# ignore-only=
+
+# A list of regular expressions of errors to enable, even if they are disabled
+# by default.
+#
+# This is a comma-separated list of strings.
+# enable=
+
+# A list of regular expressions of errors to enable, but only if they are
+# disabled by default.
+#
+# This is a comma-separated list of strings.
+# enable-only=
+
+# A regular expression for the names of functions, methods, and classes that
+# should be treated as globals.
+#
+# This is a regular expression.
+# global-rgxs=
+
+# A regular expression for the names of functions and methods that should be
+# treated as locals.
+#
+# This is a regular expression.
+# local-rgxs=
+
+# A regular expression for the names of variables that should be treated as
+# constants.
+#
+# This is a regular expression.
+# const-rgxs=
+
+# A regular expression for the names of variables that should be treated as
+# attributes.
+#
+# This is a regular expression.
+# attr-rgxs=
+
+# A regular expression for the names of variables that should be treated as
+# arguments.
+#
+# This is a regular expression.
+# arg-rgxs=
+
+# A regular expression for the names of variables that should be treated as
+# class variables.
+#
+# This is a regular expression.
+# class-rgxs=
+
+# A regular expression for the names of variables that should be treated as
+# function variables.
+#
+# This is a regular expression.
+# function-rgxs=
+
+# A regular expression for the names of variables that should be treated as
+# method variables.
+#
+# This is a regular expression.
+# method-rgxs=
+
+# A regular expression for the names of variables that should be treated as
+# inline variables.
+#
+# This is a regular expression.
+# inlinevar-rgxs=
+
+# A regular expression for the names of variables that should be treated as
+# type variables.
+#
+# This is a regular expression.
+# typevar-rgxs=
+
+# A regular expression for the names of modules that should be treated as
+- # extension modules.
+#
+# This is a regular expression.
+# extension-pkg-whitelist=
+
+# A list of comma-separated names of modules that should be treated as
+# extension modules.
+#
+# This is a comma-separated list of strings.
+# extension-pkg-allow-list=
+
+# A list of comma-separated names of modules that should not be treated as
+# extension modules.
+#
+# This is a comma-separated list of strings.
+# extension-pkg-denylist=
+
+# A list of comma-separated paths of directories to be considered as sources.
+#
+# This is a comma-separated list of strings.
+# source-roots=
+
+# A list of comma-separated names of modules to be considered as being part of
+# the standard library.
+#
+# This is a comma-separated list of strings.
+# stdlib-modules=
+
+# A list of comma-separated names of modules to be considered as being part of
+# a known third-party library.
+#
+# This is a comma-separated list of strings.
+# known-third-party=
+
+# A list of comma-separated names of modules to be considered as being part of
+# a known first-party library.
+#
+# This is a comma-separated list of strings.
+# known-first-party=
+
+# A list of comma-separated names of modules to be considered as being part of
+# a known local library.
+#
+# This is a comma-separated list of strings.
+# known-local-folder=
+
+# A list of comma-separated names of modules to be considered as being part of
+# a known standard library.
+#
+# This is a comma-separated list of strings.
+# known-standard-library=
+
+# A list of comma-separated names of modules to be considered as being part of
+# a known library.
+#
+# This is a comma-separated list of strings.
+# known-library=
+
+# A list of comma-separated names of modules to be considered as being part of
+# a known library.
+#
+# This is a comma-separated list of strings.
+# known-modules=
+
+# A list of comma-separated names of modules to be considered as being part of
+# a known library.
+#
+# This is a comma-separated list of strings.
+# known-packages=
+
+# A list of comma-separated names of modules to be considered as being part of
+# a known library.
+#
+# This is a comma-separated list of strings.
+# known-plugins=
+
+# A list of comma-separated names of modules to be considered as being part of
+# a known library.
+#
+# This is a comma-separated list of strings.
+# known-apps=
+
+# A list of comma-separated names of modules to be considered as being part of
+# a known library.
+#
+# This is a comma-separated list of strings.
+# known-django-apps=
+
+# A list of comma-separated names of modules to be considered as being part of
+# a known library.
+#
+# This is a comma-separated list of strings.
+# known-celery-apps=
+
+# A list of comma-separated names of modules to be considered as being part of
+# a known library.
+#
+# This is a comma-separated list of strings.
+# known-flask-apps=
+
+# A list of comma-separated names of modules to be considered as being part of
+# a known library.
+#
+# This is a comma-separated list of strings.
+# known-pyramid-apps=
+
+# A list of comma-separated names of modules to be considered as being part of
+# a known library.
+#
+# This is a comma-separated list of strings.
+# known-google-app-engine-apps=
+
+# A list of comma-separated names of modules to be considered as being part of
+# a known library.
+#
+# This is a comma-separated list of strings.
+# known-zope-apps=
+
+# A list of comma-separated names of modules to be considered as being part of
+# a known library.
+#
+# This is a comma-separated list of strings.
+# known-twisted-apps=
+
+# A list of comma-separated names of modules to be considered as being part of
+# a known library.
+#
+# This is a comma-separated list of strings.
+# known-stdlib-extensions=
+
+# A list of comma-separated names of modules to be considered as being part of
+# a known library.
+#
+# This is a comma-separated list of strings.
+# known-third-party-extensions=
+
+# A list of comma-separated names of modules to be considered as being part of
+# a known library.
+#
+# This is a comma-separated list of strings.
+# known-first-party-extensions=
+
+# A list of comma-separated names of modules to be considered as being part of
+# a known library.
+#
+# This is a comma-separated list of strings.
+# known-local-folder-extensions=
+
+# A list of comma-separated names of modules to be considered as being part of
+# a known library.
+#
+# This is a comma-separated list of strings.
+# known-standard-library-extensions=
+
+# A list of comma-separated names of modules to be considered as being part of
+# a known library.
+#
+# This is a comma-separated list of strings.
+# known-library-extensions=
+
+# A list of comma-separated names of modules to be considered as being part of
+# a known library.
+#
+# This is a comma-separated list of strings.
+# known-modules-extensions=
+
+# A list of comma-separated names of modules to be considered as being part of
+# a known library.
+#
+# This is a comma-separated list of strings.
+# known-packages-extensions=
+
+# A list of comma-separated names of modules to be considered as being part of
+# a known library.
+#
+# This is a comma-separated list of strings.
+# known-plugins-extensions=
+
+# A list of comma-separated names of modules to be considered as being part of
+# a known library.
+#
+# This is a comma-separated list of strings.
+# known-apps-extensions=
+
+# A list of comma-separated names of modules to be considered as being part of
+# a known library.
+#
+# This is a comma-separated list of strings.
+# known-django-apps-extensions=
+
+# A list of comma-separated names of modules to be considered as being part of
+# a known library.
+#
+# This is a comma-separated list of strings.
+# known-celery-apps-extensions=
+
+# A list of comma-separated names of modules to be considered as being part of
+# a known library.
+#
+# This is a comma-separated list of strings.
+# known-flask-apps-extensions=
+
+# A list of comma-separated names of modules to be considered as being part of
+# a known library.
+#
+# This is a comma-separated list of strings.
+# known-pyramid-apps-extensions=
+
+# A list of comma-separated names of modules to be considered as being part of
+# a known library.
+#
+# This is a comma-separated list of strings.
+# known-google-app-engine-apps-extensions=
+
+# A list of comma-separated names of modules to be considered as being part of
+# a known library.
+#
+# This is a comma-separated list of strings.
+# known-zope-apps-extensions=
+
+# A list of comma-separated names of modules to be considered as being part of
+# a known library.
+#
+# This is a comma-separated list of strings.
+# known-twisted-apps-extensions=
+
+# A list of comma-separated names of modules to be considered as being part of
+# a known library.
+#
+# This is a comma-separated list of strings.
+# known-stdlib-non-existing-modules=
+
+# A list of comma-separated names of modules to be considered as being part of
+# a known library.
+#
+# This is a comma-separated list of strings.
+# known-third-party-non-existing-modules=
+
+# A list of comma-separated names of modules to be considered as being part of
+# a known library.
+#
+# This is a comma-separated list of strings.
+# known-first-party-non-existing-modules=
+
+# A list of comma-separated names of modules to be considered as being part of
+# a known library.
+#
+# This is a comma-separated list of strings.
+# known-local-folder-non-existing-modules=
+
+# A list of comma-separated names of modules to be considered as being part of
+# a known library.
+#
+# This is a comma-separated list of strings.
+# known-standard-library-non-existing-modules=
+
+# A list of comma-separated names of modules to be considered as being part of
+# a known library.
+#
+# This is a comma-separated list of strings.
+# known-library-non-existing-modules=
+
+# A list of comma-separated names of modules to be considered as being part of
+# a known library.
+#
+# This is a comma-separated list of strings.
+# known-modules-non-existing-modules=
+
+# A list of comma-separated names of modules to be considered as being part of
+# a known library.
+#
+# This is a comma-separated list of strings.
+# known-packages-non-existing-modules=
+
+# A list of comma-separated names of modules to be considered as being part of
+# a known library.
+#
+# This is a comma-separated list of strings.
+# known-plugins-non-existing-modules=
+
+# A list of comma-separated names of modules to be considered as being part of
+# a known library.
+#
+# This is a comma-separated list of strings.
+# known-apps-non-existing-modules=
+
+# A list of comma-separated names of modules to be considered as being part of
+# a known library.
+#
+# This is a comma-separated list of strings.
+# known-django-apps-non-existing-modules=
+
+# A list of comma-separated names of modules to be considered as being part of
+# a known library.
+#
+# This is a comma-separated list of strings.
+# known-celery-apps-non-existing-modules=
+
+# A list of comma-separated names of modules to be considered as being part of
+# a known library.
+#
+# This is a comma-separated list of strings.
+# known-flask-apps-non-existing-modules=
+
+# A list of comma-separated names of modules to be considered as being part of
+# a known library.
+#
+# This is a comma-separated list of strings.
+# known-pyramid-apps-non-existing-modules=
+
+# A list of comma-separated names of modules to be considered as being part of
+# a known library.
+#
+# This is a comma-separated list of strings.
+# known-google-app-engine-apps-non-existing-modules=
+
+# A list of comma-separated names of modules to be considered as being part of
+# a known library.
+#
+# This is a comma-separated list of strings.
+# known-zope-apps-non-existing-modules=
+
+# A list of comma-separated names of modules to be considered as being part of
+# a known library.
+#
+# This is a comma-separated list of strings.
+# known-twisted-apps-non-existing-modules=
+
+# A list of comma-separated names of modules to be considered as being part of
+# a known library.
+#
+# This is a comma-separated list of strings.
+# known-stdlib-deprecated-modules=
+
+# A list of comma-separated names of modules to be considered as being part of
+# a known library.
+#
+# This is a comma-separated list of strings.
+# known-third-party-deprecated-modules=
+
+# A list of comma-separated names of modules to be considered as being part of
+# a known library.
+#
+# This is a comma-separated list of strings.
+# known-first-party-deprecated-modules=
+
+# A list of comma-separated names of modules to be considered as being part of
+# a known library.
+#
+# This is a comma-separated list of strings.
+# known-local-folder-deprecated-modules=
+
+# A list of comma-separated names of modules to be considered as being part of
+# a known library.
+#
+# This is a comma-separated list of strings.
+# known-standard-library-deprecated-modules=
+
+# A list of comma-separated names of modules to be considered as being part of
+# a known library.
+#
+# This is a comma-separated list of strings.
+# known-library-deprecated-modules=
+
+# A list of comma-separated names of modules to be considered as being part of
+# a known library.
+#
+# This is a comma-separated list of strings.
+# known-modules-deprecated-modules=
+
+# A list of comma-separated names of modules to be considered as being part of
+# a known library.
+#
+# This is a comma-separated list of strings.
+# known-packages-deprecated-modules=
+
+# A list of comma-separated names of modules to be considered as being part of
+# a known library.
+#
+# This is a comma-separated list of strings.
+# known-plugins-deprecated-modules=
+
+# A list of comma-separated names of modules to be considered as being part of
+# a known library.
+#
+# This is a comma-separated list of strings.
+# known-apps-deprecated-modules=
+
+# A list of comma-separated names of modules to be considered as being part of
+# a known library.
+#
+# This is a comma-separated list of strings.
+# known-django-apps-deprecated-modules=
+
+# A list of comma-separated names of modules to be considered as being part of
+# a known library.
+#
+# This is a comma-separated list of strings.
+# known-celery-apps-deprecated-modules=
+
+# A list of comma-separated names of modules to be considered as being part of
+# a known library.
+#
+# This is a comma-separated list of strings.
+# known-flask-apps-deprecated-modules=
+
+# A list of comma-separated names of modules to be considered as being part of
+# a known library.
+#
+# This is a comma-separated list of strings.
+# known-pyramid-apps-deprecated-modules=
+
+# A list of comma-separated names of modules to be considered as being part of
+# a known library.
+#
+# This is a comma-separated list of strings.
+# known-google-app-engine-apps-deprecated-modules=
+
+# A list of comma-separated names of modules to be considered as being part of
+# a known library.
+#
+# This is a comma-separated list of strings.
+# known-zope-apps-deprecated-modules=
+
+# A list of comma-separated names of modules to be considered as being part of
+# a known library.
+#
+# This is a comma-separated list of strings.
+# known-twisted-apps-deprecated-modules=
+
+# A list of comma-separated names of modules to be considered as being part of
+# a known library.
+#
+# This is a comma-separated list of strings.
+# known-stdlib-future-modules=
+
+# A list of comma-separated names of modules to be considered as being part of
+# a known library.
+#
+# This is a comma-separated list of strings.
+# known-third-party-future-modules=
+
+# A list of comma-separated names of modules to be considered as being part of
+# a known library.
+#
+# This is a comma-separated list of strings.
+# known-first-party-future-modules=
+
+# A list of comma-separated names of modules to be considered as being part of
+# a known library.
+#
+# This is a comma-separated list of strings.
+# known-local-folder-future-modules=
+
+# A list of comma-separated names of modules to be considered as being part of
+# a known library.
+#
+# This is a comma-separated list of strings.
+# known-standard-library-future-modules=
+
+# A list of comma-separated names of modules to be considered as being part of
+# a known library.
+#
+# This is a comma-separated list of strings.
+# known-library-future-modules=
+
+# A list of comma-separated names of modules to be considered as being part of
+# a known library.
+#
+# This is a comma-separated list of strings.
+# known-modules-future-modules=
+
+# A list of comma-separated names of modules to be considered as being part of
+# a known library.
+#
+# This is a comma-separated list of strings.
+# known-packages-future-modules=
+
+# A list of comma-separated names of modules to be considered as being part of
+# a known library.
+#
+# This is a comma-separated list of strings.
+# known-plugins-future-modules=
+
+# A list of comma-separated names of modules to be considered as being part of
+# a known library.
+#
+# This is a comma-separated list of strings.
+# known-apps-future-modules=
+
+# A list of comma-separated names of modules to be considered as being part of
+# a known library.
+#
+# This is a comma-separated list of strings.
+# known-django-apps-future-modules=
+
+# A list of comma-separated names of modules to be considered as being part of
+# a known library.
+#
+# This is a comma-separated list of strings.
+# known-celery-apps-future-modules=
+
+# A list of comma-separated names of modules to be considered as being part of
+# a known library.
+#
+# This is a comma-separated list of strings.
+# known-flask-apps-future-modules=
+
+# A list of comma-separated names of modules to be considered as being part of
+# a known library.
+#
+# This is a comma-separated list of strings.
+# known-pyramid-apps-future-modules=
+
+# A list of comma-separated names of modules to be considered as being part of
+# a known library.
+#
+# This is a comma-separated list of strings.
+# known-google-app-engine-apps-future-modules=
+
+# A list of comma-separated names of modules to be considered as being part of
+# a known library.
+#
+# This is a comma-separated list of strings.
+# known-zope-apps-future-modules=
+
+# A list of comma-separated names of modules to be considered as being part of
+# a known library.
+#
+# This is a comma-separated list of strings.
+# known-twisted-apps-future-modules=
+
+# A list of comma-separated names of modules to be considered as being part of
+# a known library.
+#
+# This is a comma-separated list of strings.
+# known-stdlib-unsupported-modules=
+
+# A list of comma-separated names of modules to be considered as being part of
+# a known library.
+#
+# This is a comma-separated list of strings.
+# known-third-party-unsupported-modules=
+
+# A list of comma-separated names of modules to be considered as being part of
+# a known library.
+#
+# This is a comma-separated list of strings.
+# known-first-party-unsupported-modules=
+
+# A list of comma-separated names of modules to be considered as being part of
+# a known library.
+#
+# This is a comma-separated list of strings.
+# known-local-folder-unsupported-modules=
+
+# A list of comma-separated names of modules to be considered as being part of
+# a known library.
+#
+# This is a comma-separated list of strings.
+# known-standard-library-unsupported-modules=
+
+# A list of comma-separated names of modules to be considered as being part of
+# a known library.
+#
+# This is a comma-separated list of strings.
+# known-library-unsupported-modules=
+
+# A list of comma-separated names of modules to be considered as being part of
+# a known library.
+#
+# This is a comma-separated list of strings.
+# known-modules-unsupported-modules=
+
+# A list of comma-separated names of modules to be considered as being part of
+# a known library.
+#
+# This is a comma-separated list of strings.
+# known-packages-unsupported-modules=
+
+# A list of comma-separated names of modules to be considered as being part of
+# a known library.
+#
+# This is a comma-separated list of strings.
+# known-plugins-unsupported-modules=
+
+# A list of comma-separated names of modules to be considered as being part of
+# a known library.
+#
+# This is a comma-separated list of strings.
+# known-apps-unsupported-modules=
+
+# A list of comma-separated names of modules to be considered as being part of
+# a known library.
+#
+# This is a comma-separated list of strings.
+# known-django-apps-unsupported-modules=
+
+# A list of comma-separated names of modules to be considered as being part of
+# a known library.
+#
+# This is a comma-separated list of strings.
+# known-celery-apps-unsupported-modules=
+
+# A list of comma-separated names of modules to be considered as being part of
+# a known library.
+#
+# This is a comma-separated list of strings.
+# known-flask-apps-unsupported-modules=
+
+# A list of comma-separated names of modules to be considered as being part of
+# a known library.
+#
+# This is a comma-separated list of strings.
+# known-pyramid-apps-unsupported-modules=
+
+# A list of comma-separated names of modules to be considered as being part of
+# a known library.
+#
+# This is a comma-separated list of strings.
+# known-google-app-engine-apps-unsupported-modules=
+
+# A list of comma-separated names of modules to be considered as being part of
+# a known library.
+#
+# This is a comma-separated list of strings.
+# known-zope-apps-unsupported-modules=
+
+# A list of comma-separated names of modules to be considered as being part of
+# a known library.
+#
+# This is a comma-separated list of strings.
+# known-twisted-apps-unsupported-modules=
+
+# A list of comma-separated names of modules to be considered as being part of
+# a known library.
+#
+# This is a comma-separated list of strings.
+# known-stdlib-removed-in-python3=
+
+# A list of comma-separated names of modules to be considered as being part of
+# a known library.
+#
+# This is a comma-separated list of strings.
+# known-third-party-removed-in-python3=
+
+# A list of comma-separated names of modules to be considered as being part of
+# a known library.
+#
+# This is a comma-separated list of strings.
+# known-first-party-removed-in-python3=
+
+# A list of comma-separated names of modules to be considered as being part of
+# a known library.
+#
+# This is a comma-separated list of strings.
+# known-local-folder-removed-in-python3=
+
+# A list of comma-separated names of modules to be considered as being part of
+# a known library.
+#
+# This is a comma-separated list of strings.
+# known-standard-library-removed-in-python3=
+
+# A list of comma-separated names of modules to be considered as being part of
+# a known library.
+#
+# This is a comma-separated list of strings.
+# known-library-removed-in-python3=
+
+# A list of comma-separated names of modules to be considered as being part of
+# a known library.
+#
+# This is a comma-separated list of strings.
+# known-modules-removed-in-python3=
+
+# A list of comma-separated names of modules to be considered as being part of
+# a known library.
+#
+# This is a comma-separated list of strings.
+# known-packages-removed-in-python3=
+
+# A list of comma-separated names of modules to be considered as being part of
+# a known library.
+#
+# This is a comma-separated list of strings.
+# known-plugins-removed-in-python3=
+
+# A list of comma-separated names of modules to be considered as being part of
+# a known library.
+#
+# This is a comma-separated list of strings.
+# known-apps-removed-in-python3=
+
+# A list of comma-separated names of modules to be considered as being part of
+# a known library.
+#
+# This is a comma-separated list of strings.
+# known-django-apps-removed-in-python3=
+
+# A list of comma-separated names of modules to be considered as being part of
+# a known library.
+#
+# This is a comma-separated list of strings.
+# known-celery-apps-removed-in-python3=
+
+# A list of comma-separated names of modules to be considered as being part of
+# a known library.
+#
+# This is a comma-separated list of strings.
+# known-flask-apps-removed-in-python3=
+
+# A list of comma-separated names of modules to be considered as being part of
+# a known library.
+#
+# This is a comma-separated list of strings.
+# known-pyramid-apps-removed-in-python3=
+
+# A list of comma-separated names of modules to be considered as being part of
+# a known library.
+#
+# This is a comma-separated list of strings.
+# known-google-app-engine-apps-removed-in-python3=
+
+# A list of comma-separated names of modules to be considered as being part of
+# a known library.
+#
+# This is a comma-separated list of strings.
+# known-zope-apps-removed-in-python3=
+
+# A list of comma-separated names of modules to be considered as being part of
+# a known library.
+#
+# This is a comma-separated list of strings.
+# known-twisted-apps-removed-in-python3=
+
+# A list of comma-separated names of modules to be considered as being part of
+# a known library.
+#
+# This is a comma-separated list of strings.
+# known-stdlib-renamed-in-python3=
+
+# A list of comma-separated names of modules to be considered as being part of
+# a known library.
+#
+# This is a comma-separated list of strings.
+# known-third-party-renamed-in-python3=
+
+# A list of comma-separated names of modules to be considered as being part of
+# a known library.
+#
+# This is a comma-separated list of strings.
+# known-first-party-renamed-in-python3=
+
+# A list of comma-separated names of modules to be considered as being part of
+# a known library.
+#
+# This is a comma-separated list of strings.
+# known-local-folder-renamed-in-python3=
+
+# A list of comma-separated names of modules to be considered as being part of
+# a known library.
+#
+# This is a comma-separated list of strings.
+# known-standard-library-renamed-in-python3=
+
+# A list of comma-separated names of modules to be considered as being part of
+# a known library.
+#
+# This is a comma-separated list of strings.
+# known-library-renamed-in-python3=
+
+# A list of comma-separated names of modules to be considered as being part of
+# a known library.
+#
+# This is a comma-separated list of strings.
+# known-modules-renamed-in-python3=
+
+# A list of comma-separated names of modules to be considered as being part of
+# a known library.
+#
+# This is a comma-separated list of strings.
+# known-packages-renamed-in-python3=
+
+# A list of comma-separated names of modules to be considered as being part of
+# a known library.
+#
+# This is a comma-separated list of strings.
+# known-plugins-renamed-in-python3=
+
+# A list of comma-separated names of modules to be considered as being part of
+# a known library.
+#
+# This is a comma-separated list of strings.
+# known-apps-renamed-in-python3=
+
+# A list of comma-separated names of modules to be considered as being part of
+# a known library.
+#
+# This is a comma-separated list of strings.
+# known-django-apps-renamed-in-python3=
+
+# A list of comma-separated names of modules to be considered as being part of
+# a known library.
+#
+# This is a comma-separated list of strings.
+# known-celery-apps-renamed-in-python3=
+
+# A list of comma-separated names of modules to be considered as being part of
+# a known library.
+#
+# This is a comma-separated list of strings.
+# known-flask-apps-renamed-in-python3=
+
+# A list of comma-separated names of modules to be considered as being part of
+# a known library.
+#
+# This is a comma-separated list of strings.
+# known-pyramid-apps-renamed-in-python3=
+
+# A list of comma-separated names of modules to be considered as being part of
+# a known library.
+#
+# This is a comma-separated list of strings.
+# known-google-app-engine-apps-renamed-in-python3=
+
+# A list of comma-separated names of modules to be considered as being part of
+# a known library.
+#
+# This is a comma-separated list of strings.
+# known-zope-apps-renamed-in-python3=
+
+# A list of comma-separated names of modules to be considered as being part of
+# a known library.
+#
+# This is a comma-separated list of strings.
+# known-twisted-apps-renamed-in-python3=
+
+# A list of comma-separated names of modules to be considered as being part of
+# a known library.
+#
+# This is a comma-separated list of strings.
+# known-stdlib-moved-in-python3=
+
+# A list of comma-separated names of modules to be considered as being part of
+# a known library.
+#
+# This is a comma-separated list of strings.
+# known-third-party-moved-in-python3=
+
+# A list of comma-separated names of modules to be considered as being part of
+# a known library.
+#
+# This is a comma-separated list of strings.
+# known-first-party-moved-in-python3=
+
+# A list of comma-separated names of modules to be considered as being part of
+# a known library.
+#
+# This is a comma-separated list of strings.
+# known-local-folder-moved-in-python3=
+
+# A list of comma-separated names of modules to be considered as being part of
+# a known library.
+#
+# This is a comma-separated list of strings.
+# known-standard-library-moved-in-python3=
+
+# A list of comma-separated names of modules to be considered as being part of
+# a known library.
+#
+# This is a comma-separated list of strings.
+# known-library-moved-in-python3=
+
+# A list of comma-separated names of modules to be considered as being part of
+# a known library.
+#
+# This is a comma-separated list of strings.
+# known-modules-moved-in-python3=
+
+# A list of comma-separated names of modules to be considered as being part of
+# a known library.
+#
+# This is a comma-separated list of strings.
+# known-packages-moved-in-python3=
+
+# A list of comma-separated names of modules to be considered as being part of
+# a known library.
+#
+# This is a comma-separated list of strings.
+# known-plugins-moved-in-python3=
+
+# A list of comma-separated names of modules to be considered as being part of
+# a known library.
+#
+# This is a comma-separated list of strings.
+# known-apps-moved-in-python3=
+
+# A list of comma-separated names of modules to be considered as being part of
+# a known library.
+#
+# This is a comma-separated list of strings.
+# known-django-apps-moved-in-python3=
+
+# A list of comma-separated names of modules to be considered as being part of
+# a known library.
+#
+# This is a comma-separated list of strings.
+# known-celery-apps-moved-in-python3=
+
+# A list of comma-separated names of modules to be considered as being part of
+# a known library.
+#
+# This is a comma-separated list of strings.
+# known-flask-apps-moved-in-python3=
+
+# A list of comma-separated names of modules to be considered as being part of
+# a known library.
+#
+# This is a comma-separated list of strings.
+# known-pyramid-apps-moved-in-python3=
+
+# A list of comma-separated names of modules to be considered as being part of
+# a known library.
+#
+# This is a comma-separated list of strings.
+# known-google-app-engine-apps-moved-in-python3=
+
+# A list of comma-separated names of modules to be considered as being part of
+# a known library.
+#
+# This is a comma-separated list of strings.
+# known-zope-apps-moved-in-python3=
+
+# A list of comma-separated names of modules to be considered as being part of
+# a known library.
+#
+# This is a comma-separated list of strings.
+# known-twisted-apps-moved-in-python3=
+
+# A list of comma-separated names of modules to be considered as being part of
+# a known library.
+#
+# This is a comma-separated list of strings.
+# known-stdlib-reimplemented-in-python3=
+
+# A list of comma-separated names of modules to be considered as being part of
+# a known library.
+#
+# This is a comma-separated list of strings.
+# known-third-party-reimplemented-in-python3=
+
+# A list of comma-separated names of modules to be considered as being part of
+# a known library.
+#
+# This is a comma-separated list of strings.
+# known-first-party-reimplemented-in-python3=
+
+# A list of comma-separated names of modules to be considered as being part of
+# a known library.
+#
+# This is a comma-separated list of strings.
+# known-local-folder-reimplemented-in-python3=
+
+# A list of comma-separated names of modules to be considered as being part of
+# a known library.
+#
+# This is a comma-separated list of strings.
+# known-standard-library-reimplemented-in-python3=
+
+# A list of comma-separated names of modules to be considered as being part of
+# a known library.
+#
+# This is a comma-separated list of strings.
+# known-library-reimplemented-in-python3=
+
+# A list of comma-separated names of modules to be considered as being part of
+# a known library.
+#
+# This is a comma-separated list of strings.
+# known-modules-reimplemented-in-python3=
+
+# A list of comma-separated names of modules to be considered as being part of
+# a known library.
+#
+# This is a comma-separated list of strings.
+# known-packages-reimplemented-in-python3=
+
+# A list of comma-separated names of modules to be considered as being part of
+# a known library.
+#
+# This is a comma-separated list of strings.
+# known-plugins-reimplemented-in-python3=
+
+# A list of comma-separated names of modules to be considered as being part of
+# a known library.
+#
+# This is a comma-separated list of strings.
+# known-apps-reimplemented-in-python3=
+
+# A list of comma-separated names of modules to be considered as being part of
+# a known library.
+#
+# This is a comma-separated list of strings.
+# known-django-apps-reimplemented-in-python3=
+
+# A list of comma-separated names of modules to be considered as being part of
+# a known library.
+#
+# This is a comma-separated list of strings.
+# known-celery-apps-reimplemented-in-python3=
+
+# A list of comma-separated names of modules to be considered as being part of
+# a known library.
+#
+# This is a comma-separated list of strings.
+# known-flask-apps-reimplemented-in-python3=
+
+# A list of comma-separated names of modules to be considered as being part of
+# a known library.
+#
+# This is a comma-separated list of strings.
+# known-pyramid-apps-reimplemented-in-python3=
+
+# A list of comma-separated names of modules to be considered as being part of
+# a known library.
+#
+# This is a comma-separated list of strings.
+# known-google-app-engine-apps-reimplemented-in-python3=
+
+# A list of comma-separated names of modules to be considered as being part of
+# a known library.
+#
+# This is a comma-separated list of strings.
+# known-zope-apps-reimplemented-in-python3=
+
+# A list of comma-separated names of modules to be considered as being part of
+# a known library.
+#
+# This is a comma-separated list of strings.
+# known-twisted-apps-reimplemented-in-python3=
+
+# A list of comma-separated names of modules to be considered as being part of
+# a known library.
+#
+# This is a comma-separated list of strings.
+# known-stdlib-removed-in-python2=
+
+# A list of comma-separated names of modules to be considered as being part of
+# a known library.
+#
+# This is a comma-separated list of strings.
+# known-third-party-removed-in-python2=
+
+# A list of comma-separated names of modules to be considered as being part of
+# a known library.
+#
+# This is a comma-separated list of strings.
+# known-first-party-removed-in-python2=
+
+# A list of comma-separated names of modules to be considered as being part of
+# a known library.
+#
+# This is a comma-separated list of strings.
+# known-local-folder-removed-in-python2=
+
+# A list of comma-separated names of modules to be considered as being part of
+# a known library.
+#
+# This is a comma-separated list of strings.
+# known-standard-library-removed-in-python2=
+
+# A list of comma-separated names of modules to be considered as being part of
+# a known library.
+#
+# This is a comma-separated list of strings.
+# known-library-removed-in-python2=
+
+# A list of comma-separated names of modules to be considered as being part of
+# a known library.
+#
+# This is a comma-separated list of strings.
+# known-modules-removed-in-python2=
+
+# A list of comma-separated names of modules to be considered as being part of
+# a known library.
+#
+# This is a comma-separated list of strings.
+# known-packages-removed-in-python2=
+
+# A list of comma-separated names of modules to be considered as being part of
+# a known library.
+#
+# This is a comma-separated list of strings.
+# known-plugins-removed-in-python2=
+
+# A list of comma-separated names of modules to be considered as being part of
+# a known library.
+#
+# This is a comma-separated list of strings.
+# known-apps-removed-in-python2=
+
+# A list of comma-separated names of modules to be considered as being part of
+# a known library.
+#
+# This is a comma-separated list of strings.
+# known-django-apps-removed-in-python2=
+
+# A list of comma-separated names of modules to be considered as being part of
+# a known library.
+#
+# This is a comma-separated list of strings.
+# known-celery-apps-removed-in-python2=
+
+# A list of comma-separated names of modules to be considered as being part of
+# a known library.
+#
+# This is a comma-separated list of strings.
+# known-flask-apps-removed-in-python2=
+
+# A list of comma-separated names of modules to be considered as being part of
+# a known library.
+#
+# This is a comma-separated list of strings.
+# known-pyramid-apps-removed-in-python2=
+
+# A list of comma-separated names of modules to be considered as being part of
+# a known library.
+#
+# This is a comma-separated list of strings.
+# known-google-app-engine-apps-removed-in-python2=
+
+# A list of comma-separated names of modules to be considered as being part of
+# a known library.
+#
+# This is a comma-separated list of strings.
+# known-zope-apps-removed-in-python2=
+
+# A list of comma-separated names of modules to be considered as being part of
+# a known library.
+#
+# This is a comma-separated list of strings.
+# known-twisted-apps-removed-in-python2=
+
+# A list of comma-separated names of modules to be considered as being part of
+# a known library.
+#
+# This is a comma-separated list of strings.
+# known-stdlib-renamed-in-python2=
+
+# A list of comma-separated names of modules to be considered as being part of
+# a known library.
+#
+# This is a comma-separated list of strings.
+# known-third-party-renamed-in-python2=
+
+# A list of comma-separated names of modules to be considered as being part of
+# a known library.
+#
+# This is a comma-separated list of strings.
+# known-first-party-renamed-in-python2=
+
+# A list of comma-separated names of modules to be considered as being part of
+# a known library.
+#
+# This is a comma-separated list of strings.
+# known-local-folder-renamed-in-python2=
+
+# A list of comma-separated names of modules to be considered as being part of
+# a known library.
+#
+# This is a comma-separated list of strings.
+# known-standard-library-renamed-in-python2=
+
+# A list of comma-separated names of modules to be considered as being part of
+# a known library.
+#
+# This is a comma-separated list of strings.
+# known-library-renamed-in-python2=
+
+# A list of comma-separated names of modules to be considered as being part of
+# a known library.
+#
+# This is a comma-separated list of strings.
+# known-modules-renamed-in-python2=
+
+# A list of comma-separated names of modules to be considered as being part of
+# a known library.
+#
+# This is a comma-separated list of strings.
+# known-packages-renamed-in-python2=
+
+# A list of comma-separated names of modules to be considered as being part of
+# a known library.
+#
+# This is a comma-separated list of strings.
+# known-plugins-renamed-in-python2=
+
+# A list of comma-separated names of modules to be considered as being part of
+# a known library.
+#
+# This is a comma-separated list of strings.
+# known-apps-renamed-in-python2=
+
+# A list of comma-separated names of modules to be considered as being part of
+# a known library.
+#
+# This is a comma-separated list of strings.
+# known-django-apps-renamed-in-python2=
+
+# A list of comma-separated names of modules to be considered as being part of
+# a known library.
+#
+# This is a comma-separated list of strings.
+# known-celery-apps-renamed-in-python2=
+
+# A list of comma-separated names of modules to be considered as being part of
+# a known library.
+#
+# This is a comma-separated list of strings.
+# known-flask-apps-renamed-in-python2=
+
+# A list of comma-separated names of modules to be considered as being part of
+# a known library.
+#
+# This is a comma-separated list of strings.
+# known-pyramid-apps-renamed-in-python2=
+
+# A list of comma-separated names of modules to be considered as being part of
+# a known library.
+#
+# This is a comma-separated list of strings.
+# known-google-app-engine-apps-renamed-in-python2=
+
+# A list of comma-separated names of modules to be considered as being part of
+# a known library.
+#
+# This is a comma-separated list of strings.
+# known-zope-apps-renamed-in-python2=
+
+# A list of comma-separated names of modules to be considered as being part of
+# a known library.
+#
+# This is a comma-separated list of strings.
+# known-twisted-apps-renamed-in-python2=
+
+# A list of comma-separated names of modules to be considered as being part of
+# a known library.
+#
+# This is a comma-separated list of strings.
+# known-stdlib-moved-in-python2=
+
+# A list of comma-separated names of modules to be considered as being part of
+# a known library.
+#
+# This is a comma-separated list of strings.
+# known-third-party-moved-in-python2=
+
+# A list of comma-separated names of modules to be considered as being part of
+# a known library.
+#
+# This is a comma-separated list of strings.
+# known-first-party-moved-in-python2=
+
+# A list of comma-separated names of modules to be considered as being part of
+# a known library.
+#
+# This is a comma-separated list of strings.
+# known-local-folder-moved-in-python2=
+
+# A list of comma-separated names of modules to be considered as being part of
+# a known library.
+#
+# This is a comma-separated list of strings.
+# known-standard-library-moved-in-python2=
+
+# A list of comma-separated names of modules to be considered as being part of
+# a known library.
+#
+# This is a comma-separated list of strings.
+# known-library-moved-in-python2=
+
+# A list of comma-separated names of modules to be considered as being part of
+# a known library.
+#
+# This is a comma-separated list of strings.
+# known-modules-moved-in-python2=
+
+# A list of comma-separated names of modules to be considered as being part of
+# a known library.
+#
+# This is a comma-separated list of strings.
+# known-packages-moved-in-python2=
+
+# A list of comma-separated names of modules to be considered as being part of
+# a known library.
+#
+# This is a comma-separated list of strings.
+# known-plugins-moved-in-python2=
+
+# A list of comma-separated names of modules to be considered as being part of
+# a known library.
+#
+# This is a comma-separated list of strings.
+# known-apps-moved-in-python2=
+
+# A list of comma-separated names of modules to be considered as being part of
+# a known library.
+#
+# This is a comma-separated list of strings.
+# known-django-apps-moved-in-python2=
+
+# A list of comma-separated names of modules to be considered as being part of
+# a known library.
+#
+# This is a comma-separated list of strings.
+# known-celery-apps-moved-in-python2=
+
+# A list of comma-separated names of modules to be considered as being part of
+# a known library.
+#
+# This is a comma-separated list of strings.
+# known-flask-apps-moved-in-python2=
+
+# A list of comma-separated names of modules to be considered as being part of
+# a known library.
+#
+# This is a comma-separated list of strings.
+# known-pyramid-apps-moved-in-python2=
+
+# A list of comma-separated names of modules to be considered as being part of
+# a known library.
+#
+# This is a comma-separated list of strings.
+# known-google-app-engine-apps-moved-in-python2=
+
+# A list of comma-separated names of modules to be considered as being part of
+# a known library.
+#
+# This is a comma-separated list of strings.
+# known-zope-apps-moved-in-python2=
+
+# A list of comma-separated names of modules to be considered as being part of
+# a known library.
+#
+# This is a comma-separated list of strings.
+# known-twisted-apps-moved-in-python2=
+
+# A list of comma-separated names of modules to be considered as being part of
+# a known library.
+#
+# This is a comma-separated list of strings.
+# known-stdlib-reimplemented-in-python2=
+
+# A list of comma-separated names of modules to be considered as being part of
+# a known library.
+#
+# This is a comma-separated list of strings.
+# known-third-party-reimplemented-in-python2=
+
+# A list of comma-separated names of modules to be considered as being part of
+# a known library.
+#
+# This is a comma-separated list of strings.
+# known-first-party-reimplemented-in-python2=
+
+# A list of comma-separated names of modules to be considered as being part of
+# a known library.
+#
+# This is a comma-separated list of strings.
+# known-local-folder-reimplemented-in-python2=
+
+# A list of comma-separated names of modules to be considered as being part of
+# a known library.
+#
+# This is a comma-separated list of strings.
+# known-standard-library-reimplemented-in-python2=
+
+# A list of comma-separated names of modules to be considered as being part of
+# a known library.
+#
+# This is a comma-separated list of strings.
+# known-library-reimplemented-in-python2=
+
+# A list of comma-separated names of modules to be considered as being part of
+# a known library.
+#
+# This is a comma-separated list of strings.
+# known-modules-reimplemented-in-python2=
+
+# A list of comma-separated names of modules to be considered as being part of
+# a known library.
+#
+# This is a comma-separated list of strings.
+# known-packages-reimplemented-in-python2=
+
+# A list of comma-separated names of modules to be considered as being part of
+# a known library.
+#
+# This is a comma-separated list of strings.
+# known-plugins-reimplemented-in-python2=
+
+# A list of comma-separated names of modules to be considered as being part of
+# a known library.
+#
+# This is a comma-separated list of strings.
+# known-apps-reimplemented-in-python2=
+
+# A list of comma-separated names of modules to be considered as being part of
+# a known library.
+#
+# This is a comma-separated list of strings.
+# known-django-apps-reimplemented-in-python2=
+
+# A list of comma-separated names of modules to be considered as being part of
+# a known library.
+#
+# This is a comma-separated list of strings.
+# known-celery-apps-reimplemented-in-python2=
+
+# A list of comma-separated names of modules to be considered as being part of
+# a known library.
+#
+# This is a comma-separated list of strings.
+# known-flask-apps-reimplemented-in-python2=
+
+# A list of comma-separated names of modules to be considered as being part of
+# a known library.
+#
+# This is a comma-separated list of strings.
+# known-pyramid-apps-reimplemented-in-python2=
+
+# A list of comma-separated names of modules to be considered as being part of
+# a known library.
+#
+# This is a comma-separated list of strings.
+# known-google-app-engine-apps-reimplemented-in-python2=
+
+# A list of comma-separated names of modules to be considered as being part of
+# a known library.
+#
+# This is a comma-separated list of strings.
+# known-zope-apps-reimplemented-in-python2=
+
+# A list of comma-separated names of modules to be considered as being part of
+# a known library.
+#
+# This is a comma-separated list of strings.
+# known-twisted-apps-reimplemented-in-python2=
+
+# A list of comma-separated names of modules to be considered as being part of
+# a known library.
+#
+# This is a comma-separated list of strings.
+# known-stdlib-removed-in-python=
+
+# A list of comma-separated names of modules to be considered as being part of
+# a known library.
+#
+# This is a comma-separated list of strings.
+# known-third-party-removed-in-python=
+
+# A list of comma-separated names of modules to be considered as being part of
+# a known library.
+#
+# This is a comma-separated list of strings.
+# known-first-party-removed-in-python=
+
+# A list of comma-separated names of modules to be considered as being part of
+# a known library.
+#
+# This is a comma-separated list of strings.
+# known-local-folder-removed-in-python=
+
+# A list of comma-separated names of modules to be considered as being part of
+# a known library.
+#
+# This is a comma-separated list of strings.
+# known-standard-library-removed-in-python=
+
+# A list of comma-separated names of modules to be considered as being part of
+# a known library.
+#
+# This is a comma-separated list of strings.
+# known-library-removed-in-python=
+
+# A list of comma-separated names of modules to be considered as being part of
+# a known library.
+#
+# This is a comma-separated list of strings.
+# known-modules-removed-in-python=
+
+# A list of comma-separated names of modules to be considered as being part of
+# a known library.
+#
+# This is a comma-separated list of strings.
+# known-packages-removed-in-python=
+
+# A list of comma-separated names of modules to be considered as being part of
+# a known library.
+#
+# This is a comma-separated list of strings.
+# known-plugins-removed-in-python=
+
+# A list of comma-separated names of modules to be considered as being part of
+# a known library.
+#
+# This is a comma-separated list of strings.
+# known-apps-removed-in-python=
+
+# A list of comma-separated names of modules to be considered as being part of
+# a known library.
+#
+# This is a comma-separated list of strings.
+# known-django-apps-removed-in-python=
+
+# A list of comma-separated names of modules to be considered as being part of
+# a known library.
+#
+# This is a comma-separated list of strings.
+# known-celery-apps-removed-in-python=
+
+# A list of comma-separated names of modules to be considered as being part of
+# a known library.
+#
+# This is a comma-separated list of strings.
+# known-flask-apps-removed-in-python=
+
+# A list of comma-separated names of modules to be considered as being part of
+# a known library.
+#
+# This is a comma-separated list of strings.
+# known-pyramid-apps-removed-in-python=
+
+# A list of comma-separated names of modules to be considered as being part of
+# a known library.
+#
+# This is a comma-separated list of strings.
+# known-google-app-engine-apps-removed-in-python=
+
+# A list of comma-separated names of modules to be considered as being part of
+# a known library.
+#
+# This is a comma-separated list of strings.
+# known-zope-apps-removed-in-python=
+
+# A list of comma-separated names of modules to be considered as being part of
+# a known library.
+#
+# This is a comma-separated list of strings.
+# known-twisted-apps-removed-in-python=
+
+# A list of comma-separated names of modules to be considered as being part of
+# a known library.
+#
+# This is a comma-separated list of strings.
+# known-stdlib-renamed-in-python=
+
+# A list of comma-separated names of modules to be considered as being part of
+# a known library.
+#
+# This is a comma-separated list of strings.
+# known-third-party-renamed-in-python=
+
+# A list of comma-separated names of modules to be considered as being part of
+# a known library.
+#
+# This is a comma-separated list of strings.
+# known-first-party-renamed-in-python=
+
+# A list of comma-separated names of modules to be considered as being part of
+# a known library.
+#
+# This is a comma-separated list of strings.
+# known-local-folder-renamed-in-python=
+
+# A list of comma-separated names of modules to be considered as being part of
+# a known library.
+#
+# This is a comma-separated list of strings.
+# known-standard-library-renamed-in-python=
+
+# A list of comma-separated names of modules to be considered as being part of
+# a known library.
+#
+# This is a comma-separated list of strings.
+# known-library-renamed-in-python=
+
+# A list of comma-separated names of modules to be considered as being part of
+# a known library.
+#
+# This is a comma-separated list of strings.
+# known-modules-renamed-in-python=
+
+# A list of comma-separated names of modules to be considered as being part of
+# a known library.
+#
+# This is a comma-separated list of strings.
+# known-packages-renamed-in-python=
+
+# A list of comma-separated names of modules to be considered as being part of
+# a known library.
+#
+# This is a comma-separated list of strings.
+# known-plugins-renamed-in-python=
+
+# A list of comma-separated names of modules to be considered as being part of
+# a known library.
+#
+# This is a comma-separated list of strings.
+# known-apps-renamed-in-python=
+
+# A list of comma-separated names of modules to be considered as being part of
+# a known library.
+#
+# This is a comma-separated list of strings.
+# known-django-apps-renamed-in-python=
+
+# A list of comma-separated names of modules to be considered as being part of
+# a known library.
+#
+# This is a comma-separated list of strings.
+# known-celery-apps-renamed-in-python=
+
+# A list of comma-separated names of modules to be considered as being part of
+# a known library.
+#
+# This is a comma-separated list of strings.
+# known-flask-apps-renamed-in-python=
+
+# A list of comma-separated names of modules to be considered as being part of
+# a known library.
+#
+# This is a comma-separated list of strings.
+# known-pyramid-apps-renamed-in-python=
+
+# A list of comma-separated names of modules to be considered as being part of
+# a known library.
+#
+# This is a comma-separated list of strings.
+# known-google-app-engine-apps-renamed-in-python=
+
+# A list of comma-separated names of modules to be considered as being part of
+# a known library.
+#
+# This is a comma-separated list of strings.
+# known-zope-apps-renamed-in-python=
+
+# A list of comma-separated names of modules to be considered as being part of
+# a known library.
+#
+# This is a comma-separated list of strings.
+# known-twisted-apps-renamed-in-python=
+
+# A list of comma-separated names of modules to be considered as being part of
+# a known library.
+#
+# This is a comma-separated list of strings.
+# known-stdlib-moved-in-python=
+
+# A list of comma-separated names of modules to be considered as being part of
+# a known library.
+#
+# This is a comma-separated list of strings.
+# known-third-party-moved-in-python=
+
+# A list of comma-separated names of modules to be considered as being part of
+# a known library.
+#
+# This is a comma-separated list of strings.
+# known-first-party-moved-in-python=
+
+# A list of comma-separated names of modules to be considered as being part of
+# a known library.
+#
+# This is a comma-separated list of strings.
+# known-local-folder-moved-in-python=
+
+# A list of comma-separated names of modules to be considered as being part of
+# a known library.
+#
+# This is a comma-separated list of strings.
+# known-standard-library-moved-in-python=
+
+# A list of comma-separated names of modules to be considered as being part of
+# a known library.
+#
+# This is a comma-separated list of strings.
+# known-library-moved-in-python=
+
+# A list of comma-separated names of modules to be considered as being part of
+# a known library.
+#
+# This is a comma-separated list of strings.
+# known-modules-moved-in-python=
+
+# A list of comma-separated names of modules to be considered as being part of
+# a known library.
+#
+# This is a comma-separated list of strings.
+# known-packages-moved-in-python=
+
+# A list of comma-separated names of modules to be considered as being part of
+# a known library.
+#
+# This is a comma-separated list of strings.
+# known-plugins-moved-in-python=
+
+# A list of comma-separated names of modules to be considered as being part of
+# a known library.
+#
+# This is a comma-separated list of strings.
+# known-apps-moved-in-python=
+
+# A list of comma-separated names of modules to be considered as being part of
+# a known library.
+#
+# This is a comma-separated list of strings.
+# known-django-apps-moved-in-python=
+
+# A list of comma-separated names of modules to be considered as being part of
+# a known library.
+#
+# This is a comma-separated list of strings.
+# known-celery-apps-moved-in-python=
+
+# A list of comma-separated names of modules to be considered as being part of
+# a known library.
+#
+# This is a comma-separated list of strings.
+# known-flask-apps-moved-in-python=
+
+# A list of comma-separated names of modules to be considered as being part of
+# a known library.
+#
+# This is a comma-separated list of strings.
+# known-pyramid-apps-moved-in-python=
+
+# A list of comma-separated names of modules to be considered as being part of
+# a known library.
+#
+# This is a comma-separated list of strings.
+# known-google-app-engine-apps-moved-in-python=
+
+# A list of comma-separated names of modules to be considered as being part of
+# a known library.
+#
+# This is a comma-separated list of strings.
+# known-zope-apps-moved-in-python=
+
+# A list of comma-separated names of modules to be considered as being part of
+# a known library.
+#
+# This is a comma-separated list of strings.
+# known-twisted-apps-moved-in-python=
+
+# A list of comma-separated names of modules to be considered as being part of
+# a known library.
+#
+# This is a comma-separated list of strings.
+# known-stdlib-reimplemented-in-python=
+
+# A list of comma-separated names of modules to be considered as being part of
+# a known library.
+#
+# This is a comma-separated list of strings.
+# known-third-party-reimplemented-in-python=
+
+# A list of comma-separated names of modules to be considered as being part of
+# a known library.
+#
+# This is a comma-separated list of strings.
+# known-first-party-reimplemented-in-python=
+
+# A list of comma-separated names of modules to be considered as being part of
+# a known library.
+#
+# This is a comma-separated list of strings.
+# known-local-folder-reimplemented-in-python=
+
+# A list of comma-separated names of modules to be considered as being part of
+# a known library.
+#
+# This is a comma-separated list of strings.
+# known-standard-library-reimplemented-in-python=
+
+# A list of comma-separated names of modules to be considered as being part of
+# a known library.
+#
+# This is a comma-separated list of strings.
+# known-library-reimplemented-in-python=
+
+# A list of comma-separated names of modules to be considered as being part of
+# a known library.
+#
+# This is a comma-separated list of strings.
+# known-modules-reimplemented-in-python=
+
+# A list of comma-separated names of modules to be considered as being part of
+# a known library.
+#
+# This is a comma-separated list of strings.
+# known-packages-reimplemented-in-python=
+
+# A list of comma-separated names of modules to be considered as being part of
+# a known library.
+#
+# This is a comma-separated list of strings.
+# known-plugins-reimplemented-in-python=
+
+# A list of comma-separated names of modules to be considered as being part of
+# a known library.
+#
+# This is a comma-separated list of strings.
+# known-apps-reimplemented-in-python=
+
+# A list of comma-separated names of modules to be considered as being part of
+# a known library.
+#
+# This is a comma-separated list of strings.
+# known-django-apps-reimplemented-in-python=
+
+# A list of comma-separated names of modules to be considered as being part of
+# a known library.
+#
+# This is a comma-separated list of strings.
+# known-celery-apps-reimplemented-in-python=
+
+# A list of comma-separated names of modules to be considered as being part of
+# a known library.
+#
+# This is a comma-separated list of strings.
+# known-flask-apps-reimplemented-in-python=
+
+# A list of comma-separated names of modules to be considered as being part of
+# a known library.
+#
+# This is a comma-separated list of strings.
+# known-pyramid-apps-reimplemented-in-python=
+
+# A list of comma-separated names of modules to be considered as being part of
+# a known library.
+#
+# This is a comma-separated list of strings.
+# known-google-app-engine-apps-reimplemented-in-python=
+
+# A list of comma-separated names of modules to be considered as being part of
+# a known library.
+#
+# This is a comma-separated list of strings.
+# known-zope-apps-reimplemented-in-python=
+
+# A list of comma-separated names of modules to be considered as being part of
+# a known library.
+#
+# This is a comma-separated list of strings.
+# known-twisted-apps-reimplemented-in-python=

@@ -1,0 +1,17 @@
+[project]
+name = "chessmate-cognitive-service"
+version = "0.1.0"
+requires-python = ">=3.9"
+
+[tool.ruff]
+src = ["./"]
+
+[tool.mypy]
+python_version = "3.9"
+warn_unused_configs = true
+ignore_missing_imports = true
+exclude = ["deps/adk-python/"]
+
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"

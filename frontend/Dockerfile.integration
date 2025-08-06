@@ -1,0 +1,25 @@
+# ---- Base Stage for Integration Tests ----
+FROM node:22.12.0-slim AS base
+
+# Install additional debugging tools
+RUN apt-get update && apt-get install -y \
+    tree \
+    curl \
+    && rm -rf /var/lib/apt/lists/*
+
+WORKDIR /usr/src/app
+
+# ---- Dependencies Stage ----
+FROM base AS deps
+COPY package.json package-lock.json* vitest.config.ts vitest.setup.ts ./
+RUN npm install
+
+# ---- Integration Test Runner Stage ----
+FROM base AS integration-test-runner
+
+# Copy dependencies
+COPY --from=deps /usr/src/app/node_modules ./node_modules
+
+# Copy source code
+COPY . .
+

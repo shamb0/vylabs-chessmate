@@ -1,0 +1,345 @@
+services:
+  redis:
+    image: "redis:alpine"
+    ports:
+      - "6379:6379"
+    networks:
+      - chessmate-network
+    environment:
+      TZ: Asia/Kolkata
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  redis-monitor:
+    image: redis:alpine
+    depends_on:
+      - redis
+    command: sh -c "sleep 5 && redis-cli -h redis MONITOR"
+    networks:
+      - chessmate-network
+
+  ollama:
+    image: ollama/ollama
+    ports:
+      - "11434:11434"
+    networks:
+      - chessmate-network
+    volumes:
+      - ollama:/root/.ollama
+    restart: unless-stopped
+    environment:
+      TZ: Asia/Kolkata
+
+  postgres:
+    image: timescale/timescaledb-ha:pg16-all
+    hostname: postgres
+    environment:
+      POSTGRES_USER: chessmate_user
+      POSTGRES_PASSWORD: chessmate_password
+      POSTGRES_DB: chessmate_db
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    networks:
+      - chessmate-network
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U chessmate_user -d chessmate_db"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 30s
+
+  vectorizer-worker:
+    image: timescale/pgai-vectorizer-worker:latest
+    environment:
+      PGAI_VECTORIZER_WORKER_DB_URL: postgres://chessmate_user:chessmate_password@postgres:5432/chessmate_db
+      OLLAMA_HOST: http://ollama:11434
+    depends_on:
+      - postgres
+    networks:
+      - chessmate-network
+
+  genai-toolbox:
+    image: us-central1-docker.pkg.dev/database-toolbox/toolbox/toolbox:latest
+    hostname: genai-toolbox
+    platform: linux/amd64
+    ports:
+      - "5000:5000"
+    volumes:
+      - ./backend/mcp_toolbox/config:/config
+    command: [ "toolbox", "--tools-file", "/config/tools.yaml", "--address", "0.0.0.0", "--port", "5000", "--log-level", "DEBUG"]
+    depends_on:
+      postgres:
+        condition: service_healthy
+    networks:
+      - chessmate-network
+    environment:
+      POSTGRES_USER: chessmate_user
+      POSTGRES_PASSWORD: chessmate_password
+      POSTGRES_DB: chessmate_db
+      POSTGRES_HOST: postgres
+      POSTGRES_PORT: 5432
+
+  backend-node:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile.unified
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.backend.rule=Host(`localhost`)"
+      - "traefik.http.routers.backend.entrypoints=web"
+      - "traefik.http.services.backend.loadbalancer.server.port=8080"
+      - "traefik.http.services.backend.loadbalancer.passhostheader=true"
+    ports:
+      - "8080:8080"  # Keep for direct access testing
+    depends_on:
+      redis:
+        condition: service_healthy
+    environment:
+      REDIS_HOST: redis
+      REDIS_PORT: 6379
+      TZ: Asia/Kolkata
+      SERVICE_NAME: chessmate-backend
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8080/healthz"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 5s
+    networks:
+      - chessmate-network
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+
+  traefik:
+    image: traefik:v3.0
+    command:
+      - "--api.insecure=true"
+      - "--providers.docker=true"
+      - "--providers.docker.exposedbydefault=false"  
+      - "--entrypoints.web.address=:80"
+      # WebSocket timeout configuration (CRITICAL FIX)
+      - "--entrypoints.web.transport.respondingTimeouts.readTimeout=3600s"
+      - "--entrypoints.web.transport.respondingTimeouts.writeTimeout=3600s"
+      - "--entrypoints.web.transport.respondingTimeouts.idleTimeout=3600s"
+    ports:
+      - "9000:80"
+      - "8081:8080"  # Traefik dashboard
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock:ro
+    networks:
+      - chessmate-network
+
+  cognitive-service-py:
+    build:
+      context: ./backend/cognitive_service
+      dockerfile: Dockerfile
+      target: production
+      args:
+        USER_ID: ${USER_ID:-1000}
+        GROUP_ID: ${GROUP_ID:-1000}
+    depends_on:
+      redis:
+        condition: service_healthy
+      ollama:
+        condition: service_started
+      postgres:
+        condition: service_healthy
+      genai-toolbox:
+        condition: service_started
+    env_file:
+      - ./backend/cognitive_service/.env
+    environment:
+      TZ: "Asia/Kolkata"
+      SERVICE_NAME: "chessmate-cognitive-service"
+      PYTHONUNBUFFERED: 1
+      APP_ENV: "production"
+      # PYTHON-TRACEBACK: 1
+      RUST_BACKTRACE: 1
+      ENABLE_CACHING: false
+    volumes:
+      - ./backend/cognitive_service:/usr/src/app
+      - ./backend/cognitive_service/logs:/usr/src/app/logs
+      - ./backend/cognitive_service/dbt_project/logs:/usr/src/app/dbt_project/logs
+    user: "${USER_ID:-1000}:${GROUP_ID:-1000}"
+    healthcheck:
+      test: ["CMD", "python", "-c", "import redis; r = redis.Redis(host='redis', port=6379); r.ping()"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 5s
+    networks:
+      - chessmate-network
+    labels:
+      - vyaakar.labs.project=ChessMate
+      - vyaakar.labs.service.type=cognitive-service
+      - vyaakar.labs.language=python
+      - vyaakar.labs.environment=production
+
+  cognitive-service-tools:
+    build:
+      context: ./backend/cognitive_service
+      dockerfile: Dockerfile
+      target: tools
+      args:
+        USER_ID: ${USER_ID:-1000}
+        GROUP_ID: ${GROUP_ID:-1000}
+    env_file:
+      - ./backend/cognitive_service/.env
+    depends_on:
+      postgres:
+        condition: service_healthy
+    volumes:
+      - ./backend/cognitive_service:/usr/src/app
+      - ./backend/cognitive_service/logs:/usr/src/app/logs
+      - ./backend/cognitive_service/dbt_project/logs:/usr/src/app/dbt_project/logs
+    user: "${USER_ID:-1000}:${GROUP_ID:-1000}"
+    networks:
+      - chessmate-network
+
+  frontend-prod:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+      target: production
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./frontend/src:/usr/src/app/src
+    environment:
+      CI: 1
+      ROARR_LOG: "true"
+      VITE_WEBSOCKET_URL: ws://backend-node:8080
+      TZ: Asia/Kolkata
+      VITE_SERVICE_NAME: chessmate-frontend-prod
+    depends_on:
+      backend-node:
+        condition: service_healthy
+    networks:
+      - chessmate-network
+    healthcheck:
+      test: ["CMD-SHELL", "wget -qO- http://127.0.0.1:3000/healthz || exit 1"]
+      interval: 15s
+      timeout: 10s
+      retries: 5
+      start_period: 50s
+
+  frontend-dev:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+      target: development
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./frontend:/usr/src/app
+      - /usr/src/app/node_modules
+    command: sh -c "npm install && npm run dev -- --host"
+    environment:
+      CI: 1
+      ROARR_LOG: "true"
+      VITE_WEBSOCKET_URL: ws://backend-node:8080
+      TZ: Asia/Kolkata
+      VITE_SERVICE_NAME: chessmate-frontend-dev
+    depends_on:
+      backend-node:
+        condition: service_healthy
+    networks:
+      - chessmate-network
+    healthcheck:
+      test: ["CMD-SHELL", "wget -qO- http://127.0.0.1:3000/healthz || exit 1"]
+      interval: 15s
+      timeout: 10s
+      retries: 5
+      start_period: 50s
+
+  frontend-dev-env2:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+      target: development
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./frontend:/usr/src/app
+      - /usr/src/app/node_modules
+    command: sh -c "npm install && npm run dev -- --host"
+    environment:
+      CI: 1
+      ROARR_LOG: "true"
+      VITE_WEBSOCKET_URL: ws://localhost:9000
+      TZ: Asia/Kolkata
+      VITE_SERVICE_NAME: chessmate-frontend-dev
+    depends_on:
+      backend-node:
+        condition: service_healthy
+    networks:
+      - chessmate-network
+    healthcheck:
+      test: ["CMD-SHELL", "wget -qO- http://127.0.0.1:3000/healthz || exit 1"]
+      interval: 15s
+      timeout: 10s
+      retries: 5
+      start_period: 50s
+
+  frontend-pw-test-runner:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile.playwright
+    container_name: frontend-pw-test-runner
+    volumes:
+      - ./frontend/traces:/usr/src/app/traces
+      - ./frontend:/usr/src/app
+      - /usr/src/app/node_modules
+    environment:
+      NODE_ENV: test
+      CI: true
+      ROARR_LOG: "true"
+      TZ: Asia/Kolkata
+      SERVICE_NAME: chessmate-frontend-pw-test-runner
+    depends_on:
+      frontend-dev:
+        condition: service_healthy
+      backend-node:
+        condition: service_healthy
+    working_dir: /usr/src/app
+    command: ["sh", "-c", "npm install && ./scripts/run-e2e-tests.sh"]
+    networks:
+      - chessmate-network
+    mem_limit: 1g
+    cpus: '1.0'
+
+  frontend-integration-test-runner:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile.integration
+    depends_on:
+      frontend-dev:
+        condition: service_healthy
+      backend-node:
+        condition: service_healthy
+    environment:
+      CI: 1
+      VITE_WEBSOCKET_URL: ws://backend-node:8080
+      ROARR_LOG: "true"
+      TZ: Asia/Kolkata
+      SERVICE_NAME: chessmate-frontend-integration-test-runner
+    volumes:
+      - ./frontend:/usr/src/app
+      - /usr/src/app/node_modules
+    command: sh -c "npm install && npm run test:run"
+    networks:
+      - chessmate-network
+
+
+networks:
+  chessmate-network:
+    driver: bridge
+
+volumes:
+  ollama:
+  postgres_data:

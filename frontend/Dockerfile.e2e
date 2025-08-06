@@ -1,0 +1,24 @@
+# Use the official Playwright image to get all browser dependencies
+FROM mcr.microsoft.com/playwright:v1.44.0
+
+# Set the working directory
+WORKDIR /usr/src/app
+
+# Copy package manager files first to leverage Docker layer caching
+COPY package.json package-lock.json* ./
+
+# Install bun itself using npm, which is available in the base image
+
+
+# Install dependencies using Bun
+RUN npm install
+
+# Copy the rest of the frontend application code
+COPY . .
+
+# Install Playwright browsers and their OS-level dependencies
+# This ensures the browsers inside the container can run correctly.
+RUN npx playwright install --with-deps
+
+# The default command can be overridden in docker-compose.yml
+CMD ["npx", "playwright", "test"]
