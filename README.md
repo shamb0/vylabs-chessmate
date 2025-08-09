@@ -10,6 +10,14 @@ Traditional learning often lacks context. ChessMate solves this by merging the u
 
 ---
 
+## 🚀 Quick Start
+
+To get your local development environment up and running, please follow our detailed quick start guide:
+
+**➡️ [ChessMate Quick Start Guide](docs/105-001-chessmate-quickstart-au.md)**
+
+---
+
 ## 🏛️ Architecture & Technical Foundation
 
 ChessMate is built on a modern microservice architecture, ensuring scalability and maintainability. The system is fully containerized with Docker for consistent development and deployment.

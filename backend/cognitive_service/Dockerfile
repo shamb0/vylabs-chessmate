@@ -16,8 +16,8 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
 RUN pip install --no-cache-dir uv
 
 # 3. Copy and install adk-python (cached unless adk-python changes)
-COPY deps/adk-python /tmp/adk-python
-RUN pip install --no-cache-dir /tmp/adk-python && rm -rf /tmp/adk-python
+# COPY deps/adk-python /tmp/adk-python
+# RUN pip install --no-cache-dir /tmp/adk-python && rm -rf /tmp/adk-python
 
 # 4. Install build-time dependencies for packages that need them
 RUN pip install --no-cache-dir wheel setuptools

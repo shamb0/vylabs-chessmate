@@ -4,6 +4,7 @@ redis[hiredis]
 structlog
 litellm
 pydantic-settings
+google-adk
 
 # Dependencies for RAG implementation (v2.0 - Production Grade)
 sqlalchemy[asyncio]
