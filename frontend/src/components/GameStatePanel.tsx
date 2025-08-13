@@ -1,36 +1,45 @@
-import React, { useMemo } from 'react';
+import React from 'react';
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Chess } from 'chess.js';
-import TurnIndicator from './TurnIndicator';
-import CapturedPieces from './CapturedPieces';
 
 interface GameStatePanelProps {
   fen: string;
 }
 
+/**
+ * GameStatePanel Component
+ * 
+ * Displays the current state of the chess game, including the turn and captured pieces.
+ * This component is generated from a Penpot design and styled using design tokens.
+ * 
+ * Design Source: Penpot file 'chessmate-panel-v1'
+ * Theme: Vintage
+ */
 const GameStatePanel: React.FC<GameStatePanelProps> = ({ fen }) => {
-  const game = useMemo(() => {
-    if (fen === 'start') {
-      return new Chess();
-    }
-    return new Chess(fen);
-  }, [fen]);
+  // The fen prop is now guaranteed to be valid by the useChessGame hook.
+  // No guard clause is needed here.
+  const game = new Chess(fen);
+  const turn = game.turn() === 'w' ? 'White' : 'Black';
 
-  const turn = game.turn();
-  
-  const history = game.history({ verbose: true });
-  const captured = {
-    w: history.filter(move => move.captured && move.color === 'b').map(move => move.captured),
-    b: history.filter(move => move.captured && move.color === 'w').map(move => move.captured),
-  };
+  // TODO: Implement logic to calculate captured pieces from FEN or game state.
+  const whiteCaptured = '-';
+  const blackCaptured = '-';
 
+  // Note: The CSS custom variables are defined in the theme files (e.g., themes/vintage.css)
+  // and are mapped from our design tokens.
   return (
-    <div className="w-full bg-card text-card-foreground p-2 rounded-lg shadow-sm">
-      <h2 className="text-lg font-semibold text-center mb-2">Game Status</h2>
-      <div className="flex justify-center">
-        <TurnIndicator turn={turn} />
-      </div>
-      <CapturedPieces captured={captured} />
-    </div>
+    <Card className="bg-[var(--panel-background-default)] text-[var(--panel-text-body)] border-none">
+      <CardHeader>
+        <CardTitle className="text-[var(--panel-text-header)] text-center text-2xl font-normal">
+          Game Status
+        </CardTitle>
+      </CardHeader>
+      <CardContent className="text-2xl font-normal space-y-2">
+        <p>Turn: {turn}</p>
+        <p>White captured: {whiteCaptured}</p>
+        <p>Black captured: {blackCaptured}</p>
+      </CardContent>
+    </Card>
   );
 };
 

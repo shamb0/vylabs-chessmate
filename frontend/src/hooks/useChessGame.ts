@@ -1,10 +1,10 @@
 import { useState, useRef, useEffect, useCallback } from 'react';
-import { Chess } from 'chess.js';
+import { Chess, DEFAULT_POSITION } from 'chess.js';
 import { useWebSocket } from '@/WebSocketProvider';
 import { logger } from '@/lib/logger';
 
 export const useChessGame = () => {
-  const [fen, setFen] = useState('start');
+  const [fen, setFen] = useState(DEFAULT_POSITION);
   const [isThinking, setIsThinking] = useState(false);
   const game = useRef(new Chess());
   const { sendMessage, lastMessage, readyState } = useWebSocket();
