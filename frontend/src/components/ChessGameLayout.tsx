@@ -14,14 +14,14 @@ const ChessGameLayout: React.FC<ChessGameLayoutProps> = ({
   chessboard,
 }) => {
   return (
-    <div className="grid grid-cols-3 gap-6 p-6 h-[calc(100vh-200px)] bg-background text-foreground">
+    <div className="grid grid-cols-12 gap-6 p-6 h-[calc(100vh-200px)] bg-background text-foreground">
       {/* Conversation Panel (Left) */}
-      <div className="lg:col-span-3 h-full">
+      <div className="col-span-3 h-full">
         {conversationPanel}
       </div>
 
       {/* Chessboard and Game State (Center) */}
-      <div className="lg:col-span-6 flex flex-col gap-4">
+      <div className="col-span-6 flex flex-col gap-4">
         <div className="flex-grow relative flex items-center justify-center">
           {chessboard}
         </div>
@@ -29,7 +29,7 @@ const ChessGameLayout: React.FC<ChessGameLayoutProps> = ({
       </div>
 
       {/* Cultural Context Panel (Right) */}
-      <div className="lg:col-span-3 h-full">
+      <div className="col-span-3 h-full">
         {culturalContextPanel}
       </div>
     </div>

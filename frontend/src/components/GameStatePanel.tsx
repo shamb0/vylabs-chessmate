@@ -28,9 +28,9 @@ const GameStatePanel: React.FC<GameStatePanelProps> = ({ fen }) => {
   // Note: The CSS custom variables are defined in the theme files (e.g., themes/vintage.css)
   // and are mapped from our design tokens.
   return (
-    <Card className="bg-[var(--panel-background-default)] text-[var(--panel-text-body)] border-none">
+    <Card className="bg-card text-card-foreground border-none">
       <CardHeader>
-        <CardTitle className="text-[var(--panel-text-header)] text-center text-2xl font-normal">
+        <CardTitle className="text-center text-2xl font-normal">
           Game Status
         </CardTitle>
       </CardHeader>
