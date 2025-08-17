@@ -6,6 +6,7 @@ import '@/index.css';
 import App from '@/App';
 import reportWebVitals from '@/reportWebVitals';
 import ErrorBoundary from '@/components/ErrorBoundary';
+import { ThemeProvider } from '@/components/theme-provider';
 
 // Add graceful SIGTERM handling for Docker
 if (typeof process !== 'undefined') {
@@ -54,7 +55,9 @@ const root = ReactDOM.createRoot(
 Roarr.info('Rendering React root WITHOUT StrictMode for WebSocket stability testing...');
 root.render(
   <ErrorBoundary>
-    <App />
+    <ThemeProvider defaultTheme="dark" storageKey="vite-ui-theme">
+      <App />
+    </ThemeProvider>
   </ErrorBoundary>
 );
 Roarr.info('React root render command issued.');

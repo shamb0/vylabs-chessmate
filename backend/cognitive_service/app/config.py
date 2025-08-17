@@ -47,9 +47,6 @@ PROVIDER_CONFIG: Dict[str, Dict[str, Any]] = {
 }
 
 
-
-
-
 class Settings(BaseSettings):
     """
     Defines all configuration settings for the application, loading from

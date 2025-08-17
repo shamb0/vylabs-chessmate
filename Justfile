@@ -28,6 +28,22 @@ stop:
     @docker container prune
     @docker compose stop postgres
 
+# Penpot Service Management
+penpot-up:
+    @echo "Starting self-hosted Penpot services..."
+    @if [ ! -f penpot/.env.penpot ]; then \
+        echo "Creating .env.penpot from example..."; \
+        cp penpot/.env.penpot.example penpot/.env.penpot; \
+        echo "✅ .env.penpot created. Please review and update credentials if necessary."; \
+    fi
+    @docker compose up -d penpot-frontend penpot-backend penpot-exporter penpot-postgres penpot-valkey
+    @echo "✅ Penpot services started. Access UI at http://localhost:9001"
+
+penpot-down:
+    @echo "Stopping self-hosted Penpot services..."
+    @docker compose stop penpot-frontend penpot-backend penpot-exporter penpot-postgres penpot-valkey
+    @echo "✅ Penpot services stopped."
+
 # Run the integration test suite
 # TODO: Create integration test suite (e.g., tests/integration/e2e.spec.ts)
 # test-integration:
@@ -397,7 +413,7 @@ gsc-up:
             echo "GSC FastMCP server is healthy."; \
             break; \
         fi; \
-        sleep 1; \
+        sleep 1;
     done
     @echo "GSC FastMCP server started on port 8125."
 
@@ -436,7 +452,7 @@ test-python-logs:
     
     kill $LOG_PID 2>/dev/null
     echo ""
-    echo "✅ Python log monitoring complete"
+    @echo "✅ Python log monitoring complete"
 
 # Monitor only Node.js service logs during test  
 test-nodejs-logs:
@@ -478,6 +494,12 @@ scan-vulnerabilities:
     @docker run --rm -v /var/run/docker.sock:/var/run/docker.sock \
         aquasec/trivy image --severity HIGH,CRITICAL 035-001-001-vylabs-target-chessmate-cognitive-service-py
 
+# Export design tokens from Penpot
+export-tokens:
+    docker compose exec frontend-dev-env2 npm run export-tokens
+
 # List all available Justfile recipes
 list:
     @just --list
+
+

@@ -20,6 +20,8 @@ services:
     command: sh -c "sleep 5 && redis-cli -h redis MONITOR"
     networks:
       - chessmate-network
+    environment:
+      TZ: Asia/Kolkata
 
   ollama:
     image: ollama/ollama
@@ -335,11 +337,138 @@ services:
     networks:
       - chessmate-network
 
+  penpot-frontend:
+    image: "penpotapp/frontend:${PENPOT_VERSION:-latest}"
+    restart: always
+    ports:
+      - 9001:8080
+    volumes:
+      - penpot_assets:/opt/data/assets
+    depends_on:
+      - penpot-backend
+      - penpot-exporter
+    networks:
+      - penpot-network
+    environment:
+      PENPOT_FLAGS: disable-email-verification enable-smtp enable-prepl-server disable-secure-session-cookies
+      PENPOT_HTTP_SERVER_MAX_BODY_SIZE: 31457280
+      PENPOT_HTTP_SERVER_MAX_MULTIPART_BODY_SIZE: 367001600
+
+  penpot-backend:
+    image: "penpotapp/backend:${PENPOT_VERSION:-latest}"
+    restart: always
+    ports:
+      - "8082:8080" # Expose on 8082 for debugging
+    volumes:
+      - penpot_assets:/opt/data/assets
+    depends_on:
+      penpot-postgres:
+        condition: service_healthy
+      penpot-valkey:
+        condition: service_healthy
+    networks:
+      - penpot-network
+    environment:
+      PENPOT_FLAGS: disable-email-verification enable-smtp enable-prepl-server disable-secure-session-cookies
+      PENPOT_PUBLIC_URI: http://localhost:9001
+      PENPOT_HTTP_SERVER_MAX_BODY_SIZE: 31457280
+      PENPOT_HTTP_SERVER_MAX_MULTIPART_BODY_SIZE: 367001600
+      PENPOT_DATABASE_URI: postgresql://penpot-postgres/penpot
+      PENPOT_DATABASE_USERNAME: penpot
+      PENPOT_DATABASE_PASSWORD: penpot
+      PENPOT_REDIS_URI: redis://penpot-valkey/0
+      PENPOT_ASSETS_STORAGE_BACKEND: assets-fs
+      PENPOT_STORAGE_ASSETS_FS_DIRECTORY: /opt/data/assets
+      PENPOT_TELEMETRY_ENABLED: "true"
+      PENPOT_TELEMETRY_REFERER: compose
+      PENPOT_SMTP_DEFAULT_FROM: no-reply@example.com
+      PENPOT_SMTP_DEFAULT_REPLY_TO: no-reply@example.com
+      PENPOT_SMTP_HOST: penpot-mailcatch
+      PENPOT_SMTP_PORT: 1025
+      PENPOT_SMTP_USERNAME: ""
+      PENPOT_SMTP_PASSWORD: ""
+      PENPOT_SMTP_TLS: "false"
+      PENPOT_SMTP_SSL: "false"
+
+  penpot-exporter:
+    image: "penpotapp/exporter:${PENPOT_VERSION:-latest}"
+    restart: always
+    ports:
+      - "8083:8080" # Expose on 8083 for debugging
+    depends_on:
+      penpot-valkey:
+        condition: service_healthy
+    networks:
+      - penpot-network
+    environment:
+      PENPOT_PUBLIC_URI: http://penpot-frontend:8080
+      PENPOT_REDIS_URI: redis://penpot-valkey/0
+
+  penpot-postgres:
+    image: "postgres:15"
+    restart: always
+    stop_signal: SIGINT
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U penpot"]
+      interval: 2s
+      timeout: 10s
+      retries: 5
+      start_period: 2s
+    volumes:
+      - penpot_postgres_v15:/var/lib/postgresql/data
+    networks:
+      - penpot-network
+    environment:
+      - POSTGRES_INITDB_ARGS=--data-checksums
+      - POSTGRES_DB=penpot
+      - POSTGRES_USER=penpot
+      - POSTGRES_PASSWORD=penpot
+
+  penpot-valkey:
+    image: valkey/valkey:8.1
+    restart: always
+    healthcheck:
+      test: ["CMD-SHELL", "valkey-cli ping | grep PONG"]
+      interval: 1s
+      timeout: 3s
+      retries: 5
+      start_period: 3s
+    networks:
+      - penpot-network
+
+  penpot-mailcatch:
+    image: sj26/mailcatcher:latest
+    restart: always
+    expose:
+      - '1025'
+    ports:
+      - "1080:1080"
+    networks:
+      - penpot-network
+
+  penpot-mcp:
+    build:
+      context: ../../720-001-ref-montevive-penpot-mcp/penpot-mcp
+      dockerfile: Dockerfile
+    env_file:
+      - ./penpot/.env.penpot
+    networks:
+      - chessmate-network
+      - penpot-network
+    ports:
+      - "5001:5000" # Expose on 5001 to avoid conflict with genai-toolbox
+    depends_on:
+      - penpot-backend
+
 
 networks:
   chessmate-network:
     driver: bridge
-
+  penpot-network:
+    driver: bridge
+    
 volumes:
   ollama:
   postgres_data:
+  penpot_postgres_v15:
+  penpot_assets:

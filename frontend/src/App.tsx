@@ -6,10 +6,6 @@ import './index.css'
 
 import { CoachingPayload, CoachingPayloadSchema } from '@/lib/schemas';
 import ChessGameLayout from './components/ChessGameLayout';
-import ConversationPanel from './components/ConversationPanel';
-import GameStatePanel from './components/GameStatePanel';
-import CulturalContextPanel from './components/CulturalContextPanel';
-import Chessboard from './components/Chessboard';
 
 const App: React.FC = () => {
   logger.info('ChessMate App component rendering...');
@@ -75,26 +71,24 @@ const App: React.FC = () => {
   }, [lastMessage]);
 
   return (
-    <div className="App dark flex flex-col h-screen" style={{backgroundColor: '#0A0E14', color: '#B3B1AD'}}>
-      <header className="p-4 border-b" style={{borderColor: '#323A4C', backgroundColor: '#1F2430'}}>
-        <h1 className="text-3xl font-bold text-center" style={{color: '#B3B1AD'}}>ChessMate: The Cognitive Co-Pilot</h1>
+    <div className="flex flex-col h-screen bg-background text-foreground">
+      <header className="p-4 border-b border-border bg-card">
+        <h1 className="text-3xl font-bold text-center text-foreground">ChessMate: The Cognitive Co-Pilot</h1>
         <div className={`p-3 text-center mt-3 rounded-lg border transition-colors ${
           isConnected 
-            ? 'border-green-400/30' 
-            : 'border-red-400/30'
-        }`} style={{
-          backgroundColor: isConnected ? 'rgba(170, 216, 76, 0.1)' : 'rgba(244, 67, 54, 0.1)',
-          color: isConnected ? '#AAD84C' : '#F44336'
-        }}>
+            ? 'border-green-400/30 bg-green-400/10 text-green-400' 
+            : 'border-red-400/30 bg-red-400/10 text-red-400'
+        }`}>
           Connection Status: {isConnected ? '✅ Connected' : '❌ Disconnected'} (ReadyState: {readyState})
         </div>
       </header>
-      <main className="flex-grow overflow-hidden" style={{backgroundColor: '#0A0E14', height: 'calc(100vh - 110px)'}}>
+      <main className="flex-grow overflow-hidden">
         <ChessGameLayout
-          conversationPanel={<ConversationPanel messageHistory={messageHistory} />}
-          gameStatePanel={<GameStatePanel fen={fen} />}
-          culturalContextPanel={<CulturalContextPanel coachingData={coachingData} />}
-          chessboard={<Chessboard position={fen} onDrop={handlePieceDrop} coachingData={coachingData} isThinking={isThinking} />}
+          messageHistory={messageHistory}
+          coachingData={coachingData}
+          fen={fen}
+          handlePieceDrop={handlePieceDrop}
+          isThinking={isThinking}
         />
       </main>
     </div>

@@ -1,119 +1,60 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
+ 
 @layer base {
-  /* FORCE AYU DARK THEME - AGGRESSIVE APPLICATION */
-  * {
-    --background: 216 33% 7% !important;         /* Deep dark blue-gray (#0A0E14) */
-    --foreground: 36 6% 69% !important;          /* Main text (#B3B1AD) */
-    --card: 216 21% 16% !important;              /* Card/panel backgrounds (#1F2430) */
-    --card-foreground: 36 6% 69% !important;     /* Card text (#B3B1AD) */
-    --popover: 216 21% 16% !important;           /* Popover backgrounds (#1F2430) */
-    --popover-foreground: 36 6% 69% !important;  /* Popover text (#B3B1AD) */
-    --primary: 25 100% 62% !important;           /* Accent orange (#FF8F40) */
-    --primary-foreground: 216 33% 7% !important; /* Dark text on orange */
-    --secondary: 216 16% 20% !important;         /* Input fields, secondary elements (#272D38) */
-    --secondary-foreground: 36 6% 69% !important; /* Secondary text (#B3B1AD) */
-    --muted: 216 16% 20% !important;             /* Muted backgrounds (#272D38) */
-    --muted-foreground: 216 11% 49% !important;  /* Muted text (#707A8C) */
-    --accent: 205 100% 67% !important;           /* Accent blue (#59C2FF) */
-    --accent-foreground: 216 33% 7% !important;  /* Dark text on blue */
-    --destructive: 0 62% 47% !important;         /* Error states (darker red for Ayu) */
-    --destructive-foreground: 36 6% 69% !important; /* Error text */
-    --border: 216 20% 25% !important;            /* Subtle borders (#323A4C) */
-    --input: 216 16% 20% !important;             /* Input field backgrounds (#272D38) */
-    --ring: 25 100% 62% !important;              /* Focus rings (orange accent) */
-  }
-
   :root {
-    /* Fallback values */
-    --background: 216 33% 7%;
-    --foreground: 36 6% 69%;
-    --card: 36 6% 69%;
-    --card-foreground: 216 33% 7%;
-    --popover: 36 6% 69%;
-    --popover-foreground: 216 33% 7%;
-    --primary: 216 33% 7%;
-    --primary-foreground: 36 6% 69%;
-    --secondary: 216 16% 20%;
-    --secondary-foreground: 36 6% 69%;
-    --muted: 216 16% 20%;
-    --muted-foreground: 216 11% 49%;
-    --accent: 25 100% 62%;
-    --accent-foreground: 216 33% 7%;
-    --destructive: 0 84% 60%;
-    --destructive-foreground: 36 6% 69%;
-    --border: 216 20% 25%;
-    --input: 216 16% 20%;
-    --ring: 25 100% 62%;
+    --background: 0 0% 100%;
+    --foreground: 222.2 84% 4.9%;
+    --card: 0 0% 100%;
+    --card-foreground: 222.2 84% 4.9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 222.2 84% 4.9%;
+    --primary: 222.2 47.4% 11.2%;
+    --primary-foreground: 210 40% 98%;
+    --secondary: 210 40% 96.1%;
+    --secondary-foreground: 222.2 47.4% 11.2%;
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+    --accent: 210 40% 96.1%;
+    --accent-foreground: 222.2 47.4% 11.2%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 222.2 84% 4.9%;
+    --radius: 0.5rem;
   }
-
+ 
   .dark {
-    /* Ayu Dark Primary Color Palette */
-    --background: 216 33% 7%;         /* Deep dark blue-gray (#0A0E14) */
-    --foreground: 36 6% 69%;          /* Main text (#B3B1AD) */
-    --card: 216 21% 16%;              /* Card/panel backgrounds (#1F2430) */
-    --card-foreground: 36 6% 69%;     /* Card text (#B3B1AD) */
-    --popover: 216 21% 16%;           /* Popover backgrounds (#1F2430) */
-    --popover-foreground: 36 6% 69%;  /* Popover text (#B3B1AD) */
-    --primary: 25 100% 62%;           /* Accent orange (#FF8F40) */
-    --primary-foreground: 216 33% 7%; /* Dark text on orange */
-    --secondary: 216 16% 20%;         /* Input fields, secondary elements (#272D38) */
-    --secondary-foreground: 36 6% 69%; /* Secondary text (#B3B1AD) */
-    --muted: 216 16% 20%;             /* Muted backgrounds (#272D38) */
-    --muted-foreground: 216 11% 49%;  /* Muted text (#707A8C) */
-    --accent: 205 100% 67%;           /* Accent blue (#59C2FF) */
-    --accent-foreground: 216 33% 7%;  /* Dark text on blue */
-    --destructive: 0 62% 47%;         /* Error states (darker red for Ayu) */
-    --destructive-foreground: 36 6% 69%; /* Error text */
-    --border: 216 20% 25%;            /* Subtle borders (#323A4C) */
-    --input: 216 16% 20%;             /* Input field backgrounds (#272D38) */
-    --ring: 25 100% 62%;              /* Focus rings (orange accent) */
+    --background: 222.2 84% 4.9%;
+    --foreground: 210 40% 98%;
+    --card: 222.2 84% 4.9%;
+    --card-foreground: 210 40% 98%;
+    --popover: 222.2 84% 4.9%;
+    --popover-foreground: 210 40% 98%;
+    --primary: 210 40% 98%;
+    --primary-foreground: 222.2 47.4% 11.2%;
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+    --accent: 217.2 32.6% 17.5%;
+    --accent-foreground: 210 40% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 212.7 26.8% 83.9%;
   }
-
+}
+ 
+@layer base {
   * {
     border-color: hsl(var(--border));
   }
-  
   body {
     background-color: hsl(var(--background));
     color: hsl(var(--foreground));
   }
-
-  /* Force Ayu Dark Theme Application */
-  .dark, [data-theme="dark"], html.dark, body.dark {
-    --background: 216 33% 7%;         /* Deep dark blue-gray (#0A0E14) */
-    --foreground: 36 6% 69%;          /* Main text (#B3B1AD) */
-    --card: 216 21% 16%;              /* Card/panel backgrounds (#1F2430) */
-    --card-foreground: 36 6% 69%;     /* Card text (#B3B1AD) */
-    --popover: 216 21% 16%;           /* Popover backgrounds (#1F2430) */
-    --popover-foreground: 36 6% 69%;  /* Popover text (#B3B1AD) */
-    --primary: 25 100% 62%;           /* Accent orange (#FF8F40) */
-    --primary-foreground: 216 33% 7%; /* Dark text on orange */
-    --secondary: 216 16% 20%;         /* Input fields, secondary elements (#272D38) */
-    --secondary-foreground: 36 6% 69%; /* Secondary text (#B3B1AD) */
-    --muted: 216 16% 20%;             /* Muted backgrounds (#272D38) */
-    --muted-foreground: 216 11% 49%;  /* Muted text (#707A8C) */
-    --accent: 205 100% 67%;           /* Accent blue (#59C2FF) */
-    --accent-foreground: 216 33% 7%;  /* Dark text on blue */
-    --destructive: 0 62% 47%;         /* Error states (darker red for Ayu) */
-    --destructive-foreground: 36 6% 69%; /* Error text */
-    --border: 216 20% 25%;            /* Subtle borders (#323A4C) */
-    --input: 216 16% 20%;             /* Input field backgrounds (#272D38) */
-    --ring: 25 100% 62%;              /* Focus rings (orange accent) */
-  }
-}
-
-/* Ayu Dark Custom Utilities - Extended Color Palette */
-@layer utilities {
-  .bg-ayu-primary { background-color: hsl(216 33% 7%); }
-  .bg-ayu-secondary { background-color: hsl(216 21% 16%); }
-  .bg-ayu-tertiary { background-color: hsl(216 16% 20%); }
-  .text-ayu-primary { color: hsl(36 6% 69%); }
-  .text-ayu-muted { color: hsl(216 11% 49%); }
-  .border-ayu { border-color: hsl(216 20% 25%); }
-  .accent-ayu-orange { color: hsl(25 100% 62%); }
-  .accent-ayu-blue { color: hsl(205 100% 67%); }
-  .accent-ayu-green { color: hsl(74 64% 57%); }
 }
